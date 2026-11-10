@@ -84,7 +84,7 @@ input,select{font:inherit;color:var(--ink);background:var(--surface);border:1.5p
 .hud-wrap .hud{width:100%;justify-content:center;column-gap:32px;row-gap:12px}
 .hud .stat{align-items:center;text-align:center}
 .buddy{display:flex;flex-direction:column;align-items:center;gap:2px}
-.buddy svg{width:96px;height:auto;display:block;animation:pop .45s ease}
+.buddy svg{width:96px;height:auto;display:block}
 @keyframes pop{0%{transform:scale(.9)}60%{transform:scale(1.06)}100%{transform:scale(1)}}
 .buddy .say{font-size:.95rem;font-weight:700;text-align:center;color:var(--muted);line-height:1.2}
 .sprout .sway{transform-box:view-box;transform-origin:60px 90px;animation:sway 3.6s ease-in-out infinite}
@@ -99,7 +99,7 @@ input,select{font:inherit;color:var(--ink);background:var(--surface);border:1.5p
 .ih .hk{animation-duration:10.5s;animation-iteration-count:infinite;animation-timing-function:ease-out;animation-fill-mode:both;transform-box:fill-box;transform-origin:center}
 .ih-cap{display:flex;align-items:center;gap:12px;min-height:84px}
 .ih-bud{flex:0 0 auto}
-.ih-bud svg{width:72px;height:auto;display:block;animation:pop .45s ease}
+.ih-bud svg{width:72px;height:auto;display:block}
 .ih-cap p{font-family:var(--body);font-weight:700;font-size:1.2rem;line-height:1.35;min-width:0}
 .steps{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;counter-reset:s}
 .steps li{display:flex;flex-direction:column;gap:4px;background:var(--bg);border-radius:16px;padding:14px;counter-increment:s}
@@ -230,7 +230,7 @@ input,select{background:var(--bg)}
 .pv-dot{width:10px;height:10px;border-radius:50%;background:var(--orange)}
 /* game header: Sprout outside the card, stats in three even columns */
 .buddy-hero{display:flex;flex-direction:column;align-items:center;gap:2px;margin-bottom:-8px}
-.buddy-hero svg{width:clamp(120px,36vw,156px);height:auto;display:block;animation:pop .45s ease}
+.buddy-hero svg{width:clamp(120px,36vw,156px);height:auto;display:block}
 .buddy-hero .say{font-family:var(--display);font-weight:600;font-size:1.1rem;letter-spacing:-.01em;text-align:center}
 .hudp{gap:16px}
 .hud3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;align-items:start}
