@@ -7,7 +7,7 @@
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Steady Day</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap">
 <style>
 /* Layout: one centered column, a "day" with a live glucose chart on top and the current moment below. */
 /* Clean playful UI: white page, soft-gray cards, near-black tight Inter headlines, DM Sans for reading,
@@ -469,6 +469,69 @@ button.r-meter[disabled]{cursor:default}
 /* headings in a serif; everything else stays DM Sans */
 h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.01em}
 h1{letter-spacing:-.02em}
+/* ===== Warm editorial look: cream paper, olive, serif headings, calm hairlines ===== */
+:root{
+  --bg:#f3eee5; --surface:#fbf8f2; --ink:#2a2822; --muted:#655e51; --line:#e2d9ca;
+  --olive:#3b4729; --olive-soft:#e3e6cc; --terra:#a6502a; --blush:#f2d4d6; --mustard:#ead08f;
+  --trust:#3b4729; --trust-soft:#ebe6d8; --teal:#6b7a45; --teal-soft:#ebe6d8;
+  --leaf:#3f5e25; --leaf-soft:#e3e6cc; --high:#9a4a1c; --high-soft:#f6e0d0; --low:#963246; --low-soft:#f4dadd;
+  --pill:#ebe4d6; --pot:#d98a62; --pot-dark:#c46f47; --petal:#efb8bd; --peri:#dcdfee; --lemon:#efe2a8; --plum:#b9a6c9; --coral:#e8a598; --orange:#d98a62;
+  --serif:"EB Garamond", Georgia, "Times New Roman", serif;
+}
+body{background:var(--bg)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em}
+h1{letter-spacing:-.015em}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:22px;box-shadow:0 1px 0 rgba(42,40,34,.03),0 18px 40px -30px rgba(42,40,34,.25)}
+.choice{background:var(--bg);border:1px solid transparent}
+.choice:hover{border-color:var(--olive);background:var(--bg)}
+.btn{background:var(--olive);color:#f7f3ec;border-radius:999px;font-weight:500;letter-spacing:.01em}
+.btn:hover{background:#2f3a20}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--surface)}
+.tag{background:var(--pill);color:var(--ink);font-weight:500}
+.hp-sec,.hp-two{border-top:1px dashed var(--line)}
+.g-seg.ok{background:#d9dfbd;border-color:var(--surface)}
+.g-seg.low{background:#f1d3d7}.g-seg.hi{background:#f3dcc9}
+.s-prog span,.r-steps li.now .r-dot{background:var(--olive)}
+.r-steps li.now .r-dot{color:#f7f3ec;border-color:var(--olive)}
+.leaf-pop{background:var(--surface);color:var(--leaf);border:1px solid var(--line)}
+.pcard{background:var(--surface);border:1px solid var(--line)}
+.pcard:hover{border-color:var(--olive)}
+.pc-top .arr{background:var(--bg)}
+.food{background:var(--bg);border:1px solid transparent}
+.food[aria-pressed="true"]{border-color:var(--olive);background:var(--olive-soft)}
+.drinkbtn{background:var(--surface)}
+.res-stats span{background:var(--surface);border:1px solid var(--line)}
+.res-try{background:var(--olive-soft);border-color:transparent}
+.gp-count{background:var(--bg)}
+.link{color:var(--ink);font-weight:500}
+input,select{background:var(--bg);border:1px solid var(--line)}
+/* homepage */
+.deco{display:none}
+.lp-title{font-size:clamp(3.2rem,11vw,5.6rem);font-weight:400}
+.lp .lead{color:var(--muted)}
+.lp-label::before{background:var(--terra)}
+.lp-how .lp-label::before{background:var(--olive)}
+.lp-bag{width:100%;max-width:440px;margin:-6px auto 0}
+.lp-bag > svg{display:block;width:100%;height:auto}
+.lp-items{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%;max-width:640px}
+.lp-item{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:14px 14px 16px;border-radius:18px;background:var(--surface);border:1px solid var(--line);text-align:left;min-height:150px;transition:border-color .2s,transform .2s}
+.lp-item:hover{transform:translateY(-2px);border-color:#cfc5b3}
+.lp-items .lp-item[data-g]:not([aria-selected="true"]){background:var(--surface);color:var(--ink);box-shadow:none}
+.lp-items .lp-item[data-g][aria-selected="true"]{border:1.5px solid var(--olive);background:#fffdf8;color:var(--ink);box-shadow:0 10px 24px -18px rgba(59,71,41,.6)}
+.lp-item svg{width:54px;height:54px;align-self:center;margin:4px 0 8px}
+.lp-item b{font-family:var(--body);font-weight:600;font-size:1rem;color:var(--ink)}
+.lp-item span{font-size:.9rem;color:var(--muted)}
+.lp-item .sel{position:absolute;top:10px;right:10px;width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);background:var(--bg)}
+.lp-item[aria-selected="true"] .sel{background:var(--olive);border-color:var(--olive);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5 l4 4 8-9' fill='none' stroke='%23f7f3ec' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:100%}
+@media (max-width:520px){.lp-items{gap:8px}.lp-item{padding:12px 10px 14px;min-height:140px}.lp-item svg{width:44px;height:44px}}
+.pv,.pv[data-g]{background:#ebe4d6}
+.pv-win{background:var(--surface)}
+.pv .pv-dot,.pv[data-g] .pv-dot{background:var(--olive)}
+.pq-tile,.pp-tile,.pr-tile{background:var(--bg)}
+.sk-bar{background:#e6dfd2}
+.lp-start{width:100%;max-width:440px;padding:18px 36px;font-size:1.1rem}
+.lp-start:hover{background:#2f3a20}
 </style>
 
 </head>
@@ -796,6 +859,22 @@ function setHeroGame(g,byUser){
   playHero();
 }
 
+// Homepage hero: a frosted grocery bag with blurred produce inside and a carrot poking out the top
+function frostedBag(){
+  return `<svg viewBox="0 0 440 330" role="img" aria-label="A frosted grocery bag with an apple, greens, and corn inside">
+    <defs><filter id="fbBlur" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="13"/></filter></defs>
+    <g transform="translate(232 6) rotate(20 42 42)">${flu('carrot',0,84)}</g>
+    <g filter="url(#fbBlur)">
+      <circle cx="140" cy="228" r="66" fill="#d77474"/><path d="M140 168 c6-22 26-32 40-30 c-6 20-24 30-40 30Z" fill="#8aa36a"/>
+      <rect x="192" y="118" width="76" height="176" rx="32" fill="#6f9273"/>
+      <path d="M256 244 l104 -46 v92 h-104Z" fill="#e9c763"/>
+    </g>
+    <path d="M46 116 L106 40 L164 52 L176 112 L270 112 L284 46 L332 40 L396 116 L404 300 L188 318 L40 296Z" fill="#fbf8f2" fill-opacity=".58"/>
+    <path d="M176 112 L270 112 L262 70 L184 70Z" fill="#f3eee5"/>
+    <path d="M46 116 L106 40 L164 52 L176 112 M270 112 L284 46 L332 40 L396 116" fill="none" stroke="#e2d9ca" stroke-width="1.5"/>
+  </svg>`;
+}
+
 const MARK=`<svg viewBox="0 0 26 26" aria-hidden="true"><path d="M13 24 V12" stroke="var(--ink)" stroke-width="2.4" stroke-linecap="round"/><path d="M13 14 C6 14 4 8 5 4 C10 4 13 8 13 14Z M13 12 C13 6 17 3 22 3 C22 8 19 12 13 12Z" fill="var(--ink)"/></svg>`;
 function renderIntro(){
   heroAuto=true; heroGame='plate';
@@ -811,12 +890,12 @@ function renderIntro(){
       <h1 class="lp-title">Steady Day</h1>
       <p class="lead">Play these games to improve your diabetes knowledge.</p>
     </div>
+    <div class="lp-bag">${frostedBag()}</div>
     <div class="lp-games">
       <span class="lp-label">Our games</span>
-      <div class="lp-pills" role="tablist" aria-label="Our games">
-        <button class="lp-pill" role="tab" data-g="plate" aria-selected="${heroGame==='plate'}">Build a plate</button>
-        <button class="lp-pill" role="tab" data-g="coping" aria-selected="${heroGame==='coping'}">A stressful day</button>
-        <button class="lp-pill" role="tab" data-g="r15" aria-selected="${heroGame==='r15'}">Rule of 15</button>
+      <div class="lp-items" role="tablist" aria-label="Our games">
+        ${[['plate','leafy','Build a plate','3 meals'],['coping','teacup','A stressful day','6 moments'],['r15','juicebox','Rule of 15','A short story']].map(([g,ic,t,sub])=>
+          `<button class="lp-item lp-pill" role="tab" data-g="${g}" aria-selected="${heroGame===g}"><span class="sel" aria-hidden="true"></span><svg viewBox="0 0 64 64" aria-hidden="true">${flu(ic)}</svg><b>${t}</b><span>${sub}</span></button>`).join('')}
       </div>
     </div>
     <div class="lp-how">
@@ -837,7 +916,7 @@ function renderIntro(){
 function character(k){
   const S=(bg,body)=>`<svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" fill="${bg}"/>${body}</svg>`;
   if(k==='dx') // big leaf with a curled tendril
-    return S('#d6edc6',`
+    return S('#e3e6cc',`
       <path d="M36 104 C34 56 74 20 130 18 C134 70 96 106 36 104Z" fill="#2f7a3f"/>
       <path d="M40 101 C66 76 94 50 126 22" fill="none" stroke="#a9db8c" stroke-width="3" stroke-linecap="round"/>
       <path d="M62 80 l-6 -16 M80 64 l-4 -18 M98 48 l-2 -16 M70 74 l16 4 M88 58 l18 2 M106 42 l16 0" stroke="#a9db8c" stroke-width="2.2" stroke-linecap="round"/>
@@ -845,23 +924,23 @@ function character(k){
       <path d="M128 92 c10 -2 14 -12 8 -18 c-6 -6 -14 0 -10 6 c3 4 8 1 6 -2" fill="none" stroke="#4f9a3a" stroke-width="3" stroke-linecap="round"/>`);
   if(k==='risk'){ // fern fiddlehead curl
     let d='';for(let i=0;i<=60;i++){const t=i/60*3.4*Math.PI,r=3+5*t;d+=(i?' L':'M')+(84+Math.cos(t+Math.PI)*r).toFixed(1)+' '+(48+Math.sin(t+Math.PI)*r).toFixed(1)}
-    return S('#bfe6cf',`
+    return S('#dde3d0',`
       <path d="${d} C${(84+3+5*3.4*Math.PI).toFixed(1)} 80 92 96 72 118" fill="none" stroke="#2f8a4f" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
       ${[[120,80,-30],[118,100,-10],[96,108,20],[136,64,-50]].map(([x,y,a])=>`<ellipse cx="${x}" cy="${y}" rx="11" ry="5.5" transform="rotate(${a} ${x} ${y})" fill="#7cc47f"/>`).join('')}
       <circle cx="30" cy="28" r="5" fill="#2f8a4f" opacity=".35"/><circle cx="44" cy="18" r="3" fill="#2f8a4f" opacity=".35"/>`);}
   if(k==='support') // twirly vine with round leaves
-    return S('#e5f2b4',`
+    return S('#ece5d0',`
       <path d="M-4 92 C30 52 52 112 84 78 S132 40 164 62" fill="none" stroke="#4f8a2a" stroke-width="5" stroke-linecap="round"/>
       ${[[30,70,-40,'#8cc63f'],[56,94,30,'#5ea63a'],[96,66,-30,'#8cc63f'],[124,54,20,'#5ea63a'],[146,60,-20,'#8cc63f']].map(([x,y,a,c])=>`<path d="M${x} ${y} c-8 -14 4 -26 14 -20 c8 6 2 22 -14 20Z" transform="rotate(${a} ${x} ${y})" fill="${c}"/>`).join('')}
       <path d="M70 90 c6 10 18 10 20 2 c2 -6 -6 -10 -10 -6 c-3 3 0 7 3 5" fill="none" stroke="#4f8a2a" stroke-width="2.6" stroke-linecap="round"/>
       <path d="M112 50 c-4 -10 2 -20 10 -18 c6 2 5 10 0 10 c-3 0 -4 -3 -2 -5" fill="none" stroke="#4f8a2a" stroke-width="2.6" stroke-linecap="round"/>`);
-  return S('#2e6a3a',` 
+  return S('#3b4729',` 
       <path d="M80 112 V70" stroke="#c9ec8b" stroke-width="5" stroke-linecap="round"/>
       <path d="M80 74 C58 74 40 58 42 34 C66 34 80 50 80 74Z" fill="#c9ec8b"/>
       <path d="M80 70 C80 46 96 28 122 30 C122 56 104 70 80 70Z" fill="#9fdc6b"/>
-      <path d="M80 74 C66 62 56 50 50 40 M80 70 C94 56 104 46 114 36" stroke="#2e6a3a" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/>
+      <path d="M80 74 C66 62 56 50 50 40 M80 70 C94 56 104 46 114 36" stroke="#3b4729" stroke-width="2" stroke-linecap="round" fill="none" opacity=".5"/>
       <path d="M126 82 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3Z M30 86 l2 4 4 2 -4 2 -2 4 -2 -4 -4 -2 4 -2Z" fill="#e8f7a8"/>
-      <ellipse cx="80" cy="113" rx="26" ry="5" fill="#245530"/>`);
+      <ellipse cx="80" cy="113" rx="26" ry="5" fill="#2f3a20"/>`);
 }
 const PATH_TAGS={dx:'Living with it',risk:'Prevention',support:'Caregivers',curious:'Everyone'};
 
@@ -990,22 +1069,22 @@ function next(){S.fb=null;S.i++;render();window.scrollTo({top:0,behavior:'smooth
 
 // =================== MODULE HUB ===================
 function plateArt(){
-  return `<svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" fill="#e5f2b4"/>
-    <circle cx="80" cy="62" r="46" fill="#fff"/><circle cx="80" cy="62" r="38" fill="#cfe9bf"/>
-    <path d="M80 24 A38 38 0 0 1 118 62 L80 62Z" fill="#f6d7b6"/><path d="M118 62 A38 38 0 0 1 80 100 L80 62Z" fill="#f3ec9e"/>
+  return `<svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" fill="#ece5d3"/>
+    <circle cx="80" cy="62" r="46" fill="#fff"/><circle cx="80" cy="62" r="38" fill="#dfe3c6"/>
+    <path d="M80 24 A38 38 0 0 1 118 62 L80 62Z" fill="#f1d9c6"/><path d="M118 62 A38 38 0 0 1 80 100 L80 62Z" fill="#efe1a9"/>
     <path d="M80 24 V100 M80 62 H118" stroke="#fff" stroke-width="3"/>
     <path d="M58 48 c-6 -8 2 -14 8 -8 c4 -8 14 -2 8 6 c6 4 0 12 -6 8 c-2 8 -12 6 -10 -6Z" fill="#3f8a3f"/>
     <ellipse cx="62" cy="80" rx="9" ry="7" fill="#e5533d"/></svg>`;
 }
 // thumbnail for A stressful day: a sky, a grass field, and a calendar
 function dayArt(){
-  const blades=[18,34,52,70,96,118,142].map((x,i)=>`<path d="M${x} ${112-(i%2)*3} l-2 -6 M${x} ${112-(i%2)*3} l0 -8 M${x} ${112-(i%2)*3} l2 -6" stroke="#5e9e4a" stroke-width="1.6" stroke-linecap="round"/>`).join('');
-  return `<svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" fill="#cfe5f6"/>
+  const blades=[18,34,52,70,96,118,142].map((x,i)=>`<path d="M${x} ${112-(i%2)*3} l-2 -6 M${x} ${112-(i%2)*3} l0 -8 M${x} ${112-(i%2)*3} l2 -6" stroke="#7d8f55" stroke-width="1.6" stroke-linecap="round"/>`).join('');
+  return `<svg viewBox="0 0 160 120" aria-hidden="true"><rect width="160" height="120" fill="#e8e1d2"/>
     <circle cx="132" cy="24" r="11" fill="#f7d77a"/>
     <g fill="#fff"><ellipse cx="34" cy="26" rx="14" ry="6"/><circle cx="29" cy="22" r="6"/><circle cx="38" cy="21" r="7"/></g>
-    <path d="M0 86 C40 74 90 78 160 84 V120 H0Z" fill="#c3e5a8"/><path d="M0 98 C50 90 110 92 160 98 V120 H0Z" fill="#99d07f"/>${blades}
+    <path d="M0 86 C40 74 90 78 160 84 V120 H0Z" fill="#dde2c4"/><path d="M0 98 C50 90 110 92 160 98 V120 H0Z" fill="#c9d3a8"/>${blades}
     <g transform="translate(56 30)"><rect x="0" y="6" width="48" height="50" rx="7" fill="#fff"/>
-      <path d="M0 13 A7 7 0 0 1 7 6 H41 A7 7 0 0 1 48 13 V20 H0Z" fill="var(--low)"/>
+      <path d="M0 13 A7 7 0 0 1 7 6 H41 A7 7 0 0 1 48 13 V20 H0Z" fill="var(--terra)"/>
       <rect x="12" y="1" width="4" height="10" rx="2" fill="var(--ink)"/><rect x="32" y="1" width="4" height="10" rx="2" fill="var(--ink)"/>
       ${[0,1,2,3].map(c=>[0,1,2].map(r=>`<rect x="${7+c*9.5}" y="${25+r*9}" width="6" height="5" rx="1.2" fill="${c===2&&r===1?'var(--trust)':'#d6dee9'}"/>`).join('')).join('')}</g></svg>`;
 }
@@ -1501,8 +1580,8 @@ function gardenGrow(n){
     return kinds[i%4](x,y,1.25);
   }).join('');
   return `<svg viewBox="0 0 640 124" role="img" aria-label="Your garden with ${n} leaves" font-family="var(--body)">
-    <rect width="640" height="124" fill="#e3eefb"/>${sunIllo(604,26,11)}
-    <path d="M0 84 C160 72 480 72 640 84 V124 H0Z" fill="#c3e5a8"/>
+    <rect width="640" height="124" fill="#efe9de"/>${sunIllo(604,26,11)}
+    <path d="M0 84 C160 72 480 72 640 84 V124 H0Z" fill="#dfe3c6"/>
     <rect x="12" y="96" width="616" height="18" rx="9" fill="var(--soil)"/>${draw}</svg>`;
 }
 function gardenPanel(){
